@@ -1,0 +1,15 @@
+
+public class NPC extends Character {
+	private String enemyName;
+	private double experienceRewarded;
+	
+	NPC(int maxHP, int baseAttack, String enemyName, double experienceRewarded) {
+		super(maxHP, baseAttack);
+		this.enemyName = enemyName;
+		this.experienceRewarded = experienceRewarded;
+	}
+	
+	public String toString() {
+		return this.enemyName;
+	}
+}

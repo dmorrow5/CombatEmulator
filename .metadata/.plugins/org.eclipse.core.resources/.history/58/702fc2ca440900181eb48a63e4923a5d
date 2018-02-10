@@ -1,0 +1,59 @@
+package UserInterface;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Driver {
+
+	public static void main(String[] args) {
+		
+		boolean isRunning = true;
+		Scanner controller = new Scanner(System.in);
+		int userSelection;
+		
+		while (isRunning) {
+			try {
+				displayStartMenu();
+				switch (userResponse(controller)) {
+				case 1:
+					System.out.println("New Game Starting!\n");
+					break;
+				case 2:
+					System.out.println("No save files detected\n");
+					break;
+				case 3:
+					isRunning = false;
+					System.out.println("GoodBye!");
+					break;
+				default:
+					System.out.println("Incorrect Option");
+						
+				}
+			} catch (InputMismatchException ex) {
+				System.out.println("Incorrect Entry!");
+			} catch (Exception ex) {
+				System.out.println("Error!");
+			} finally {
+				
+			}
+		}
+
+	}
+	
+	public static void displayStartMenu() {
+		System.out.println("Select an option:");
+		System.out.println("[1] New Game");
+		System.out.println("[2] Load File");
+		System.out.println("[3] Quit");
+	}
+	
+	public static int userResponse(Scanner controller) throws InputMismatchException {
+		int userSelection;
+		
+		userSelection = controller.nextInt();
+		
+		return userSelection;
+	}
+	
+	
+
+}

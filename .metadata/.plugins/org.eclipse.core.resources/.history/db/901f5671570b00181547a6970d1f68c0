@@ -1,0 +1,21 @@
+package UserInterface;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+class Controller {
+	private static Scanner controller;
+	
+	protected static int getResponse() {
+		while (true) {
+			try {
+				return controller.nextInt();
+				controller.nextLine();
+			} catch (InputMismatchException ex) {
+				System.out.println("Option Doesn't Exist");
+				controller.nextLine();
+			} catch (Exception ex) {
+				System.out.println("Error!");
+				controller.nextLine();
+		}
+	}
+}

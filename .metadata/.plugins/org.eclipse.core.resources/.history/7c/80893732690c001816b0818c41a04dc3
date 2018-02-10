@@ -1,0 +1,29 @@
+package UserInterface;
+import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+
+class Controller {
+	
+	protected int getResponse() {
+		
+		Scanner controller = null;
+	 
+		try {
+			controller = new Scanner(System.in);
+			if (controller.hasNextInt()) {
+				int response = controller.nextInt();
+				return response; 
+			}
+		} catch (InputMismatchException ex) {
+			System.out.println("Option Doesn't Exist");
+		} catch (NoSuchElementException ex) {
+			System.out.println("NoSuchElementException: " + ex);
+		} catch (Exception ex) { 
+			System.out.println("Error!");
+		} finally {
+			if (controller != null)
+				controller.close();
+		}
+	}
+}

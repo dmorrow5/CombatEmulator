@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 4 elements to &apos;CombatEmulator/src/CharacterStuff&apos;&#x0D;&#x0A;- Original project: &apos;CombatEmulator&apos;&#x0D;&#x0A;- Destination element: &apos;CombatEmulator/src/CharacterStuff&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     PlayableCharacter.java&#x0D;&#x0A;     Skill.java&#x0D;&#x0A;     Character.java&#x0D;&#x0A;     NPC.java&#x0D;&#x0A;- Update references to refactored element" description="Move compilation units" destination="/src&lt;CharacterStuff" element1="/src&lt;{PlayableCharacter.java" element2="/src&lt;{Skill.java" element3="/src&lt;{Character.java" element4="/src&lt;{NPC.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1517696555039" units="4" version="1.0"/>
+</session>
