@@ -3,30 +3,25 @@ package UserInterface;
 class StartScreen {
 	
 	public static void runStartUp() {
-		boolean isRunning = true;
 		
-		splashScreen();
+		displayStartMenu();
+		int response = Controller.getResponse();
 		
-		while (isRunning) {
-			displayStartMenu();
-			int response = Controller.getResponse();
-			switch (response) {
+		switch (response) {
 			case 1:
 				System.out.println("New Game Starting!\n");
-				MainMenu.runMainMenu();
+				Driver.currentState = GameState.newGame;
 				break;
 			case 2:
 				System.out.println("No save files detected\n");
-				MainMenu.runMainMenu();
+				Driver.currentState = GameState.loadGame;
 				break;
 			case 3:
-				isRunning = false;
+				Driver.currentState = GameState.bootUp;
 				System.out.println("GoodBye!");
 				break;
 			default:
 				System.out.println("Incorrect Option");
-					
-			}
 		}
 	}
 

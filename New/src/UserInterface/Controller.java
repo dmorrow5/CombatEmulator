@@ -3,32 +3,38 @@ import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-class Controller {
-	
-	protected static int getResponse() {
+public class Controller {
+
+	public static int getResponse() {
 		
-		Scanner controller = new Scanner(System.in);
 		int response = -1;
+		Scanner controller = new Scanner(System.in);
 	 
-		while (response == -1) {
-			try {
-				if (controller.hasNextInt()) {
-					response = controller.nextInt();
-				}
-			} catch (InputMismatchException ex) {
-				System.out.println("Option Doesn't Exist");
-			} catch (NoSuchElementException ex) {
-				System.out.println("NoSuchElementException: " + ex);
-			} catch (Exception ex) { 
-				System.out.println("Error!");
-			} 
+		try {
+			while (!controller.hasNextInt()) {}
+			
+			response = controller.nextInt();
+				
+		} catch (InputMismatchException ex) {
+			System.out.println("Option Doesn't Exist");
+		} catch (NoSuchElementException ex) {
+			System.out.println("NoSuchElementException: " + ex);
+		} catch (Exception ex) { 
+			System.out.println("Error!");
+		} 
+		finally
+		{
+//			controller.close();
+//			controller = null;
 		}
-		
-		if (controller != null) {
-			controller.close();	
-			controller = null;
-		}
-		
+
 		return response;
+	}
+	
+	@SuppressWarnings("resource")
+	
+	public static String getStringResponse() {
+			
+		return new Scanner(System.in).nextLine();
 	}
 }

@@ -3,32 +3,34 @@ package UserInterface;
 class MainMenu {
 	
 	public static void runMainMenu() {
-		boolean isRunning = true;
 		
-		while (isRunning) {
-			displayMenuOptions();
-			int response = Controller.getResponse();
-			switch (response) {
-			case 1:
-				System.out.println("Entering Battle Setup!\n");
-				break;
-			case 2:
-				System.out.println("Entering Character Creation!\n");
-				break;
-			case 3:
-				System.out.println("Character Healed!\n");
-				break;
-			case 4:
-				System.out.println("Entering Save Menu!\n");
-				break;
-			case 5:
-				System.out.println("GoodBye!");
+		displayMenuOptions();
+		int response = Controller.getResponse();
+		switch (response) {
+		case 1:
+			System.out.println("Entering Battle Setup!\n");
+			Driver.currentState = GameState.beginBattle;
+			break;
+		case 2:
+			System.out.println("Entering Character Creation!\n");
+			Driver.currentState = GameState.beginCreateCharacter;
+			break;
+		case 3:
+			System.out.println("Character Healed!\n");
+			Driver.currentState = GameState.beginHeal;
+			break;
+		case 4:
+			System.out.println("Entering Save Menu!\n");
+			Driver.currentState = GameState.beginSave;
+			break;
+		case 5:
+			System.out.println("GoodBye!");
+			Driver.currentState = GameState.bootUp;
+			
+			break;
+		default:
+			System.out.println("Incorrect Option");
 				
-				break;
-			default:
-				System.out.println("Incorrect Option");
-					
-			}
 		}
 	}
 	
