@@ -22,6 +22,17 @@ public class Party {
 		}
 	}
 	
+	public static boolean gameOver()
+	{		
+		for (PlayableCharacter character:characters)
+		{
+			if (character.isAlive())
+				return false;
+		}
+		
+		return true;
+	}
+	
 	public static boolean partyExists()
 	{
 		return hasCharacters;
